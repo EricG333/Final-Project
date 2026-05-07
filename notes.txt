@@ -1,0 +1,153 @@
+[DATA TYPES]
+The data types section focuses on data types and how variables store and manipulate data in C. Data types such as integers, floating-point numbers, doubles, characters, and Booleans define what kind of values can be stored and what operations can be executed. Week 2 emphasizes important behaviors like integer overflow and underflow, floating-point precision limitations, and how characters use ASCII values. It also talks about signed and unsigned integers and the different number representations like decimal, octal, and hexadecimal. Another key concept is type casting, both implicit and explicit, and how converting between types can lead to truncation or data loss. Arithmetic operations, operator precedence, and assignment operators are also covered, along with rules and best practices for naming variables to ensure readable and maintainable code.
+
+1. int (Integer)
+Whole numbers (positive, negative, zero)
+Can have:
+Overflow -> value too large
+Underflow -> value too small
+
+2. float
+Decimal numbers (single precision, ~32 bits)
+Uses f suffix (e.g., 3.14f)
+Has limited precision -> rounding errors possible
+
+3. double
+Same as float but:
+Higher precision (64 bits)
+Used for scientific calculations
+Supports scientific notation (1e6)
+
+4. char
+Stores a single character (1 byte)
+Uses ASCII values
+Can be used in arithmetic
+Example: 'A' + 1 -> 'B'
+
+5. bool
+Represents:
+true (1)
+false (0)
+Requires #include <stdbool.h>
+
+Signed vs Unsigned
+Signed = positive + negative
+Unsigned = only positive (larger max range)
+
+Different Number Systems
+Decimal -> normal (42)
+Octal -> starts with 0 (052)
+Hex -> starts with 0x (0x2A)
+
+Type Casting:
+Process of converting one data type to another
+Syntax: (type)
+
+Implicit Casting:
+Automatic conversion by the compiler
+float f = 10;
+int i = f;
+
+Explicit Casting:
+Manual conversion using the cast operator
+float f = 3.14;
+int i = (int) f;
+[END]
+
+[LOOPS]
+Week 3 introduces loops and control structures, which are important for controlling program flow and repeating tasks efficiently. The three main loop types are for, while, and do-while. Each serves a different purpose depending on whether the number of iterations is known or condition-based. The structure and components of loops, including initialization, condition, and update, are emphasized. The week also covers increment and decrement operators and the difference between pre- and post-operations. In addition, conditional statements such as if, if-else, and if-else if are introduced for decision-making, showing the idea that separate if statements can be independent. Logical operators (&&, ||, !) are used to combine conditions, and switch statements provide an alternative way to handle multiple cases, and also talks about using break statements to prevent unintended execution of subsequent cases.
+
+Loops:
+Loops allow repeated execution of code.
+Used for:
+Automating tasks
+Processing data
+Implementing algorithms
+
+3 types of loops:
+for
+while
+do-while
+
+For Loops:
+for (initialization; condition; update) {
+    // code
+}
+Can count forward or backward with i++ or i--.
+Used when you know how many times to run the loop.
+
+While Loop:
+while (condition) {
+    // code
+}
+Runs indefinitely as long as the condition is true.
+
+Do-While Loop:
+do {
+    // code
+} while (condition);
+Similar to while, but it runs at least once.
+The condition is checked after the execution.
+
+If Statements:
+if (condition) {
+    // code
+}
+Runs if the condition is true.
+
+If-Else Statements:
+if (condition) {
+    // true
+} else {
+    // false
+}
+
+If-Else Statements Chain:
+if (condition1) {
+} else if (condition2) {
+} else {
+}
+
+Logical Operators:
+&& = 'and' (both conditions must be true)
+|| = 'or' (at least one condition is true)
+!  = 'not' (checks if condition is false)
+
+Switch Statements:
+switch (expression) {
+    case value:
+        // code
+        break;
+    default:
+        // code
+}
+[END]
+
+[ARRAYS]
+Week 4 focuses on arrays, which is a data structure in C used to store multiple values of the same data type under a single variable. The notes cover how to define arrays by specifying a data type and size, as well as different ways to initialize them, including full initialization, partial initialization (where remaining values default to zero), and allowing the compiler to determine the size. Array elements are accessed using indices that start at 0, and it is important to stay within bounds to avoid undefined behavior. Arrays are commonly used with loops to process data, such as calculating sums. Week 4 also introduces multidimensional arrays, specifically 2D arrays, which act like tables with rows and columns. Character arrays are used to store strings and are null-terminated. Some topics include using the const keyword to make arrays read-only, variable-length arrays that determine size at runtime, and common operations such as finding the maximum value and reversing an array. Overall, arrays are shown as an essential tool for storing, accessing, and manipulating collections of data.
+
+Week 5 builds on arrays by introducing multidimensional arrays, array properties, and dynamic memory concepts. Multidimensional arrays are arrays where elements are accessed using multiple indices. These arrays are stored in row-major order and are often processed using nested loops, enabling operations like printing matrices, computing different sums, and performing matrix multiplication. The notes also emphasize key properties of arrays in C, such as all elements must be of the same data type, are stored in contiguous memory locations, have a fixed size at declaration, and are accessed using indices starting at 0. Additionally, arrays and pointers can be used together, where the array name represents the address of the first element. The week further introduces variable-length arrays (VLAs), which allow array size to be determined at runtime, and dynamic arrays, which allocate memory during program execution by using functions like malloc(), calloc(), and realloc(). These dynamic methods allow memory allocation and resizing as needed, helping avoid limitations of fixed-size arrays.
+[END]
+
+[FUNCTIONS]
+Week 6 introduces functions in C, focusing on their purpose, structure, and how they improve organization. Functions allow programs to be broken into manageable parts, making code more readable, reusable, and easier to maintain. Each function consists of a return type, a function name, parameters, and a body, and can return a value. The week also introduces function prototypes, which informs the compiler about a function's name, return type, and parameters before it is used, enabling proper type checking. The main() function is highlighted as the starting point of every C program and can also accept command-line arguments. This week also explains how functions are called and distinguishes between formal parameters and actual arguments. A key concept is that C uses call by value by default, which means functions receive copies of variables, so changes inside the function do not affect the original variables. To modify original values, pointers are used to call by reference, allowing functions to directly access and change variables from the calling function.
+
+Week 7 builds on functions by introducing pointers with functions, function scope, recursion, and function pointers. The notes show how functions can return multiple values by using pointer parameters, allowing direct modification of variables in the calling function. It also covers different types of functions, such as static functions that are limited to a single file and variadic functions that can accept a variable number of arguments. Function pointers are shown as a way to pass functions as arguments, enabling operations like applying a function to every element of an array. This week also explores dynamic memory usage within functions, such as allocating memory with malloc() and the importance of freeing memory to avoid leaks. Also, recursion is presented as a method where a function calls itself to solve smaller subproblems, such as factorial and Fibonacci calculations. Other topics include variable scope (local, global, and static variables), inline functions for optimization, and safe programming practices like avoiding returning addresses of local variables. Overall, Week 7 focuses on making functions more powerful, flexible, and efficient.
+[END]
+
+[POINTERS]
+Week 8 focuses on pointers in C and how they are used to access and manipulate memory. A pointer is a variable that stores the address of another variable, allowing programs to work with memory more effectively. The notes explain pointer basics, including declaration, initialization, and dereferencing, as well as how pointers enable functions to modify variables outside their local scope by passing addresses instead of copies. This week also shows pointer arithmetic to navigate through memory, especially when working with arrays. More advanced topics include pointers to pointers, which store the address of another pointer, and their usefulness in handling more complex data structures. The week also covers working with strings as character pointers and arrays of pointers. Additionally, dynamic memory allocation are mentioned using functions like malloc() and free(), including best practices such as checking for allocation failure and avoiding memory leaks or dangling pointers. Overall, pointers are shown as a powerful but careful tool for managing memory and enabling efficient, flexible programming in C.
+[END]
+
+[STRUCTURES]
+Week 9 introduces structures in C, which are user-defined data types that allow grouping variables of different types under a single named variable. Structures are useful for modeling real-world data, such as students, dates, or books, by organizing related information into one unit. The notes explain how to define structures, declare variables of that type, and access members using the dot (.) operator. Structures can also be passed to functions either by value or by reference using pointers, where passing by pointer is more efficient and allows modification of the original data using the arrow (->) operator. Additionally, the typedef keyword is introduced to simplify structure declarations by creating custom type names. Overall, structures are presented as a powerful way to organize and manage complex data in your program.
+[END]
+
+[STRINGS]
+Week 10 focuses on strings in C and how they are stored, manipulated, and handled in memory. In C, strings are arrays of characters terminated by a null character ('\0'), and proper null termination is essential to avoid undefined behavior such as crashes or reading unnecessary values. The notes cover different ways to declare and initialize strings, such as making sure the size of your string has enough space to also include the null termination. Common string functions from <string.h> are introduced, including strlen(), strcpy(), strcat(), and strcmp(), along with warnings about buffer overflows if destination arrays are not large enough. Safe input handling is emphasized using fgets() instead of scanf() to prevent memory issues. The concept of tokenizing strings using strtok() is also shown, allowing strings to be split into smaller parts based on delimiters. Common mistakes such as modifying string literals, forgetting null terminators, and unsafe input functions are emphasized, reinforcing best practices for efficient string manipulation in C.
+[END]
+
+[STRING FUNCTON]
+ajdjdndsk end
+[END]
+
